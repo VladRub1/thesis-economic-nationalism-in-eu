@@ -31,6 +31,7 @@ library(stargazer) # create beautiful output
 library(car)
 library(broom)     # work with influence observations
 library(olsrr)     # visualisation of influence observations
+library(interflex) # testing moderation effect on robustness
 
 
 ###################### PREPARE DATA ######################
