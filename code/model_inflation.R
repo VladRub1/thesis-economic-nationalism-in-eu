@@ -60,9 +60,9 @@ panel$unemployment_log_lag_2 <- stats::lag(panel$unemployment_log, 2)
 
 ######################### MODEL ##########################
 ################# Inflation Rates Model  #################
-### 3-lags Model
+### 1-2-3-lags Model
 ### Multiple R-squared:  0.7057,	Adjusted R-squared:  0.6874
-model_inflation_3_lags <- lm(inflation ~ 
+model_inflation_1_2_3_lags <- lm(inflation ~ 
                       + inflation_lag_1
                       + inflation_lag_2
                       + inflation_lag_3
@@ -88,7 +88,34 @@ model_inflation_3_lags <- lm(inflation ~
                       + country_trade_growth_percentage
                       , data = panel)
 
-### FINAL SPECIFICATION (2-lags Model)
+### 1-and-3-lags Model
+### Multiple R-squared:  0.6998,	Adjusted R-squared:  0.682 
+model_inflation_1_3_lags <- lm(inflation ~ 
+                               + inflation_lag_1
+                               + inflation_lag_3
+                               + duty_free_import_usd_log
+                               + duty_free_import_usd_log_lag_1
+                               + export_market_penetration_index_log
+                               + w_avg_tariff
+                               + w_avg_tariff_lag_1
+                               + f_workers_num_log
+                               + f_workers_num_log * export_market_penetration_index_log
+                               + f_workers_num_log_lag_1
+                               + f_workers_num_log_lag_1 * export_market_penetration_index_log
+                               + f_workers_num_log_lag_2
+                               + f_workers_num_log_lag_2 * export_market_penetration_index_log
+                               # controls
+                               + world_trade_growth_percentage
+                               + population_log
+                               + gdp
+                               + unemployment_log
+                               + trade_bal_perc_of_gdp
+                               + fdi_in_perc_of_gdp
+                               + fdi_out_perc_of_gdp
+                               + country_trade_growth_percentage
+                               , data = panel)
+
+### FINAL SPECIFICATION (1-and-2-lags Model)
 ### Multiple R-squared:  0.6927,	Adjusted R-squared:  0.6754
 model_inflation <- lm(inflation ~ 
               + inflation_lag_1
@@ -118,7 +145,7 @@ model_inflation <- lm(inflation ~
 ### check summary
 summary(model_inflation)
 ### compare with and without 3rd inflation lag
-mtable(model_inflation_3_lags, model_inflation)
+mtable(model_inflation_1_2_3_lags, model_inflation_1_3_lags, model_inflation)
 
 
 ### check ME
@@ -171,6 +198,8 @@ ggplot(me_inflation, aes(x = export_market_penetration_index_log)) +
 bptest(model_inflation)  # there is heteroscedasticity
 # you can see these standard errors in the paper
 coeftest(model_inflation, vcov = vcovHC, type = "HC3")  # everything is ok
+coeftest(model_inflation_1_3_lags, vcov = vcovHC, type = "HC3")  # everything is ok
+coeftest(model_inflation_1_2_3_lags, vcov = vcovHC, type = "HC3")  # everything is ok
 
 
 ### outliers and leverages observations
