@@ -95,12 +95,12 @@ ggplot(me_unemployment, aes(x = export_market_penetration_index_log)) +
   geom_line(aes(y = dydx_f_workers_num_log_lag_1+1.645*sqrt(Var_dydx_f_workers_num_log_lag_1)), color='darkgrey', linetype = 2) +
   geom_line(aes(y = dydx_f_workers_num_log_lag_1-1.645*sqrt(Var_dydx_f_workers_num_log_lag_1)), color='darkgrey', linetype = 2) +
   geom_hline(yintercept = 0) +
-  ggtitle("Dependent Variable: log(Unemployment Rate)") +
+  ggtitle("Dependent Variable: Unemployment Rate (log)") +
   theme(plot.title = element_text (hjust = 0.5, size=14)) +
-  xlab("log(Export Market Penetration Index)") + 
-  ylab(expression(Marginal~Effect~of~log(Foreign~Workers~Number[t-1]))) + 
+  xlab("Export Market Penetration Index (log)") + 
+  ylab(expression(ME~of~Foreign~Workers~Number[t-1]~(log))) + 
   theme(axis.title.x = element_text(size = 12),  
-        axis.title.y = element_text(size = 10.5))
+        axis.title.y = element_text(size = 12))
 
 
 ### robustness tests

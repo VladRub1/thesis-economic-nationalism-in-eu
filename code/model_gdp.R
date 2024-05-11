@@ -99,7 +99,8 @@ ggplot(me_gdp, aes(x = export_market_penetration_index_log)) +
   geom_hline(yintercept = 0) +
   ggtitle("Dependent Variable: GDP Growth Rate") +
   theme(plot.title = element_text(hjust = 0.5, size= 14)) + 
-  xlab("log(Export Market Penetration Index)") + ylab("Marginal Effect of Average Tariffs Rate") +
+  xlab("Export Market Penetration Index (log)") + 
+  ylab(expression(ME~of~Average~Tariff[t-1])) + 
   theme(axis.title.x = element_text(size = 12),  
         axis.title.y = element_text(size = 12))
   
@@ -111,10 +112,10 @@ ggplot(me_gdp, aes(x = export_market_penetration_index_log)) +
   geom_hline(yintercept = 0) +
   ggtitle("Dependent Variable: GDP Growth Rate") +
   theme(plot.title = element_text (hjust = 0.5, size=14)) +
-  xlab("log(Export Market Penetration Index)") + 
-  ylab(expression(Marginal~Effect~of~log(Foreign~Workers~Number[t-1]))) +
+  xlab("Export Market Penetration Index (log)") + 
+  ylab(expression(ME~of~Foreign~Workers~Number[t-1]~(log))) +
   theme(axis.title.x = element_text(size = 12),  
-        axis.title.y = element_text(size = 10.5))
+        axis.title.y = element_text(size = 12))
 
 
 ### robustness tests

@@ -162,10 +162,10 @@ ggplot(me_inflation, aes(x = export_market_penetration_index_log)) +
   geom_hline(yintercept = 0) +
   ggtitle("Dependent Variable: Inflation Rate") +
   theme(plot.title = element_text (hjust = 0.5, size=14)) +
-  xlab("log(Export Market Penetration Index)") + 
-  ylab(expression(Marginal~Effect~of~log(Foreign~Workers~Number[t-0]))) +
+  xlab("Export Market Penetration Index (log)") + 
+  ylab(expression(ME~of~Foreign~Workers~Number[t-0]~(log))) + 
   theme(axis.title.x = element_text(size = 12),  
-        axis.title.y = element_text(size = 10.5))
+        axis.title.y = element_text(size = 12))
 
 ### ME of log(Foreign Workers Number) t_1
 ggplot(me_inflation, aes(x = export_market_penetration_index_log)) + 
@@ -174,11 +174,11 @@ ggplot(me_inflation, aes(x = export_market_penetration_index_log)) +
   geom_line(aes(y = dydx_f_workers_num_log_lag_1-1.645*sqrt(Var_dydx_f_workers_num_log_lag_1)), color = 'darkgrey', linetype = 2) +
   geom_hline(yintercept = 0) +
   ggtitle("Dependent Variable: Inflation Rate") +
-  xlab("log(Export Market Penetration Index)") + 
-  ylab(expression(Marginal~Effect~of~log(Foreign~Workers~Number[t-1]))) +
+  xlab("Export Market Penetration Index (log)") + 
+  ylab(expression(ME~of~Foreign~Workers~Number[t-1]~(log))) + 
   theme(plot.title = element_text (hjust = 0.5, size=14),
         axis.title.x = element_text(size = 12),  
-        axis.title.y = element_text(size = 10.5))
+        axis.title.y = element_text(size = 12))
 
 ### ME of log(Foreign Workers Number) t_2
 ggplot(me_inflation, aes(x = export_market_penetration_index_log)) + 
@@ -187,11 +187,11 @@ ggplot(me_inflation, aes(x = export_market_penetration_index_log)) +
   geom_line(aes(y = dydx_f_workers_num_log_lag_2-1.645*sqrt(Var_dydx_f_workers_num_log_lag_2)), color = 'darkgrey', linetype = 2) +
   geom_hline(yintercept = 0) +
   ggtitle("Dependent Variable: Inflation Rate") +
-  xlab("log(Export Market Penetration Index)") + 
-  ylab(expression(Marginal~Effect~of~log(Foreign~Workers~Number[t-2]))) +
+  xlab("Export Market Penetration Index (log)") + 
+  ylab(expression(ME~of~Foreign~Workers~Number[t-2]~(log))) + 
   theme(plot.title = element_text (hjust = 0.5, size=14),
         axis.title.x = element_text(size = 12),  
-        axis.title.y = element_text(size = 10.5))
+        axis.title.y = element_text(size = 12))
 
 
 ### robustness tests
