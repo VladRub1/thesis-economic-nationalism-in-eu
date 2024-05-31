@@ -28,6 +28,8 @@ estimate the models:
 and [The World Bank](https://data.worldbank.org/) (more specifically, from 
 the [WITS](https://wits.worldbank.org/) project), merged and used in the
 research
+* [**presentation**](./presentation) — Presentation for the defence of 
+the research text
 * [**text**](./text) — The final text of the research. One can see more details 
 about the data here, as well as descriptions of the models and their specifications
 
